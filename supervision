@@ -20,7 +20,7 @@ GS="https://script.google.com/macros/s/AKfycbyXIvTyuOmhi-kIqNQKuH1GCefsRDT-zZFqa
 
 juntaLineas() {
   extra=""
-  while read -t 1 linea ; do extra="$extra+$linea%0A" ; done
+  while read linea ; do extra="$extra+$linea%0A" ; done
   echo $extra
 }
 
