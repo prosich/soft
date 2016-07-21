@@ -33,11 +33,11 @@ misioncumplida() {
 }
 
 misionfallida() {
-  supervisame put $YO ERROR `juntalineas`
+  supervisame put $YO ERROR `juntaLineas`
 }
 
 misioninfo() {
-  supervisame put $YO INFO `juntalineas`
+  supervisame put $YO INFO `juntaLineas`
 }
 
 # lo que sigue es para uso interactivo y de debug
