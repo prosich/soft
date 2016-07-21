@@ -1,10 +1,18 @@
-
-# V1.1
+# Funciones para monitorizar ejecuciones de scripts diarios,
+# mediante llamadas a un script de google ("supervisor" en la 
+# cuenta de autop.rosmay@gmail.com
+#
+# Uso:
+#   - source esto
+#   - en caso de error, usar "misionfallida Mensaje"
+#   - en csao de fincorrecto, informar con "missioncumplida"
 
 if [ "$0" != "-bash" ]
 then
+  # uso normal desde un script
   YO=`hostname -s`-`basename $0`
 else
+  # para debug desde shell
   YO=`hostname -s`
 fi
 
