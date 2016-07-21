@@ -1,5 +1,5 @@
 # Funciones para monitorizar ejecuciones de scripts diarios,
-# mediante llamadas a un script de google ("supervisor" en la 
+# mediante llamadas a un script de google ("supervisor") en la 
 # cuenta de autop.rosmay@gmail.com
 #
 # Uso:
@@ -18,15 +18,14 @@ fi
 
 GS="https://script.google.com/macros/s/AKfycbyXIvTyuOmhi-kIqNQKuH1GCefsRDT-zZFqaN9MrX6DhunTaXg/exec"
 
+juntaLineas() {
+  extra=""
+  while read linea ; do extra="$extra+$linea%0A" ; done
+  echo $extra
+}
+
 supervisame() {
-  extra="$4"
-  if [ "$extra" = "" ] ; then
-    # No recibido texto extra en parametro. Leer de stdin.
-    while read linea ; do
-      extra="$extra+$linea%0A"
-    done
-  fi
-  wget -q -O - "$GS?cmd=$1&origin=$2&code=$3&extra=$extra" 
+  wget -q -O - "$GS?cmd=$1&origin=$2&code=$3&extra=$4" 
 }
 
 misioncumplida() {
@@ -34,11 +33,11 @@ misioncumplida() {
 }
 
 misionfallida() {
-  supervisame put $YO ERROR $1
+  supervisame put $YO ERROR `juntalineas`
 }
 
 misioninfo() {
-  supervisame put $YO INFO $1
+  supervisame put $YO INFO `juntalineas`
 }
 
 # lo que sigue es para uso interactivo y de debug
