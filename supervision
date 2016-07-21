@@ -1,4 +1,4 @@
-# Funciones para monitorizar ejecuciones de scripts diarios,
+# Funciones para monitorizar ejecuciones de scripts bash diarios,
 # mediante llamadas a un script de google ("supervisor") en la 
 # cuenta de autop.rosmay@gmail.com
 #
@@ -19,8 +19,7 @@ fi
 GS="https://script.google.com/macros/s/AKfycbyXIvTyuOmhi-kIqNQKuH1GCefsRDT-zZFqaN9MrX6DhunTaXg/exec"
 
 juntaLineas() {
-  extra=""
-  while read linea ; do extra="$extra+$linea%0A" ; done
+  while read -t 0 linea ; do extra="$extra+$linea%0A" ; done
   echo $extra
 }
 
