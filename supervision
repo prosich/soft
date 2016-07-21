@@ -1,0 +1,51 @@
+
+# V1.1
+
+if [ "$0" != "-bash" ]
+then
+  YO=`hostname -s`-`basename $0`
+else
+  YO=`hostname -s`
+fi
+
+GS="https://script.google.com/macros/s/AKfycbyXIvTyuOmhi-kIqNQKuH1GCefsRDT-zZFqaN9MrX6DhunTaXg/exec"
+
+supervisame() {
+  extra="$4"
+  if [ "$extra" = "" ] ; then
+    # No recibido texto extra en parametro. Leer de stdin.
+    while read linea ; do
+      extra="$extra+$linea%0A"
+    done
+  fi
+  wget -q -O - "$GS?cmd=$1&origin=$2&code=$3&extra=$extra" 
+}
+
+misioncumplida() {
+  supervisame put $YO
+}
+
+misionfallida() {
+  supervisame put $YO ERROR $1
+}
+
+misioninfo() {
+  supervisame put $YO INFO $1
+}
+
+# lo que sigue es para uso interactivo y de debug
+
+listamisiones() {
+  supervisame lst
+}
+
+limpiamisiones() {
+  supervisame clr
+}
+
+borramision() {
+  supervisame del "$1"
+}
+
+
+
