@@ -7,16 +7,16 @@ GS="https://script.google.com/macros/s/AKfycbyXIvTyuOmhi-kIqNQKuH1GCefsRDT-zZFqa
 
 # Uso:
 #   - sourceme
-#   - en caso de error, usar "misionfallida Mensaje"
 #   - en caso de fin correcto, informar con "misioncumplida"
+#   - en caso de error, usar "echo MENSAJE | misionfallida"
 
-if [ "$0" != "-bash" ]
+if [ "`echo $0|cut -c1`" = "-" ]
 then
+  # uso en shell interactiva
+  YO=`hostname -s`
+else
   # uso normal desde un script
   YO=`hostname -s`-`basename $0`
-else
-  # para debug desde shell
-  YO=`hostname -s`
 fi
 
 juntaLineas() {
