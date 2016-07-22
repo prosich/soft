@@ -1,11 +1,14 @@
+
 # Funciones para monitorizar ejecuciones de scripts bash diarios,
 # mediante llamadas a un script de google ("supervisor") en la 
 # cuenta de autop.rosmay@gmail.com
-#
+
+GS="https://script.google.com/macros/s/AKfycbyXIvTyuOmhi-kIqNQKuH1GCefsRDT-zZFqaN9MrX6DhunTaXg/exec"
+
 # Uso:
-#   - source esto
+#   - sourceme
 #   - en caso de error, usar "misionfallida Mensaje"
-#   - en csao de fincorrecto, informar con "missioncumplida"
+#   - en caso de fin correcto, informar con "misioncumplida"
 
 if [ "$0" != "-bash" ]
 then
@@ -16,9 +19,8 @@ else
   YO=`hostname -s`
 fi
 
-GS="https://script.google.com/macros/s/AKfycbyXIvTyuOmhi-kIqNQKuH1GCefsRDT-zZFqaN9MrX6DhunTaXg/exec"
-
 juntaLineas() {
+  # esto sera util porque wget urlcodifica todo menos los newlines
   extra=""
   while read linea ; do extra="$extra+$linea%0A" ; done
   echo $extra
@@ -40,8 +42,6 @@ misioninfo() {
   supervisame put $YO INFO `juntaLineas`
 }
 
-# lo que sigue es para uso interactivo y de debug
-
 listamisiones() {
   supervisame lst
 }
@@ -53,6 +53,3 @@ limpiamisiones() {
 borramision() {
   supervisame del "$1"
 }
-
-
-
