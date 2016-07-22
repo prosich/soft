@@ -1,0 +1,11 @@
+
+if [ ! -e /soft ] ; then
+  ( cd / && git clone https://github.com/prosich/soft )
+else
+  ( cd /soft && git pull )
+fi
+
+PATH=/soft/scripts:$PATH
+
+source supervision
+
