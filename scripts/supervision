@@ -5,7 +5,7 @@
 
 GS="https://script.google.com/macros/s/AKfycbyyGVnoSob8SimRPUTvt0zjGLKIU5fPultg4oOhGXSBF6AzQSb3/exec"
 
-# Uso:
+# Uso: 
 #   - sourceme
 #   - en caso de fin correcto, informar con "misioncumplida"
 #   - en caso de error, usar "echo MENSAJE | misionfallida"
