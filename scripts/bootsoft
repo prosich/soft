@@ -1,5 +1,5 @@
 # Instalame asi la primera vez: 
-#   cd / && git clone https://github.com/prosich/soft )
+#   cd / && git clone https://github.com/prosich/soft 
 
 cd /soft && git pull
 PATH=/soft/scripts:$PATH
