@@ -1,12 +1,8 @@
+# Instalame asi la primera vez: 
+#   cd / && git clone https://github.com/prosich/soft )
 
-if [ ! -e /soft ] ; then
-  ( cd / && git clone https://github.com/prosich/soft )
-else
-  ( cd /soft && git pull )
-fi
-
+cd /soft && git pull )
 PATH=/soft/scripts:$PATH
-
 source supervision
 
 
