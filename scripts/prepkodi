@@ -2,6 +2,7 @@
 
 export RSYNC_PASSWORD=codi
 
-rsync -a kodi@zeta.upv.es::kodi/pelisalacarta/python/main-classic/ \
-         /cygdrive/c/Users/prosich.UPVNET/AppData/Roaming/Kodi/addons/plugin.video.pelisalacarta
+rsync -a --delete \
+  kodi@zeta.upv.es::kodi/pelisalacarta/python/main-classic/ \
+  /cygdrive/c/Users/prosich.UPVNET/AppData/Roaming/Kodi/addons/plugin.video.pelisalacarta
 
