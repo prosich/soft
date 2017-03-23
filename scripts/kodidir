@@ -1,0 +1,9 @@
+#!/bin/sh
+
+cd /tmp
+cd /storage/.kodi                                   2>/dev/null 
+cd /cygdrive/c/Users/$USERNAME/AppData/Roaming/Kodi 2>/dev/null
+cd /home/osmc/.kodi                                 2>/dev/null
+
+pwd
+

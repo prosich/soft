@@ -1,8 +1,9 @@
 #!/bin/sh
-
+PATH=/soft/scripts:$PATH
+KODI=`kodidir`
 export RSYNC_PASSWORD=codi
 
 rsync -a --delete \
   kodi@zeta.upv.es::kodi/pelisalacarta/python/main-classic/ \
-  /cygdrive/c/Users/prosich.UPVNET/AppData/Roaming/Kodi/addons/plugin.video.pelisalacarta
+  $KODI/addons/plugin.video.pelisalacarta
 
