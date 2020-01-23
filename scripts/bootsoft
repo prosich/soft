@@ -4,5 +4,6 @@
 cd /soft && git pull
 PATH=/soft/scripts:$PATH
 source supervision
+source avisos
 
 
