@@ -1,4 +1,3 @@
 #!/bin/sh
-
 date >> /tmp/tics.log
 
