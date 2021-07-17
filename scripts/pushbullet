@@ -1,0 +1,8 @@
+#!/usr/bin/python
+import sys
+from pushbullet import Pushbullet
+
+pb=Pushbullet(open('/etc/pushbullet.token').readline().rstrip('\n'))
+
+pb.push_note(str(sys.argv[1]),str(sys.argv[2]))
+
