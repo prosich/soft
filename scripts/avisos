@@ -1,4 +1,4 @@
 export admin="prosich@cc.upv.es"
-function avisa   { echo  "$1" | mailx -s "ERROR $0" $admin ; }
+function avisa   { echo  "$1" | pushbullet "$0" $admin ; }
 function logexit { echo  "$1" ; exit 1 ; }
 function aborta  { avisa "$1" ; logexit "$1" ; }
