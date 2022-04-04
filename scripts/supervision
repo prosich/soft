@@ -27,7 +27,7 @@ juntaLineas() {
 }
 
 supervisame() {
-  wget --no-check-certficate -q -O - --post-data "cmd=$1&origin=$2&code=$3&extra=$4" $GS 
+  wget --no-check-certficates -q -O - --post-data "cmd=$1&origin=$2&code=$3&extra=$4" $GS 
 }
 
 misioncumplida() {
